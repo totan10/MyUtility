@@ -93,7 +93,7 @@ system.place(x=10, y=10)
 #########################Battery###########################################
 
 
-def contverTime(seconds):
+def convertTime(seconds):
     minutes, seconds=divmod(seconds,60)
     hours, minutes=divmod(minutes, 60)
     return "%d:%02d:%02d"% (hours,minutes,seconds)
@@ -104,7 +104,7 @@ def none():
     global battery_label
     battery=psutil.sensors_battery()
     percent=battery.percent
-    time=contverTime(battery.secsleft)
+    time=convertTime(battery.secsleft)
 
     lb1.config(text=f"{percent}%")
     lb1_plug.config(text=f"Plug in:{str(battery.power_plugged)}")
@@ -361,6 +361,7 @@ def mode():
         apps.config(bg="#292e2e", fg="#d6d6d6")
 
         button_mode=False
+        
     else:
         LHS.config(bg="#f4f5f5")
         myimage.config(bg="#f4f5f5")
